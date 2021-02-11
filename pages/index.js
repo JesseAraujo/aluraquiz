@@ -1,10 +1,13 @@
-import styled from 'styled-components'
+import React from 'react'
+import styled from 'styled-components';
+import { useRouter } from 'next/router'
+
 import db from '../db.json';
-import Widget from '../src/components/Widget'
-import QuizLogo from '../src/components/QuizLogo'
-import QuizBackground from '../src/components/QuizBackground'
-import Footer from '../src/components/Footer'
-import GitHubCorner from '../src/components/GitHubCorner'
+import Widget from '../src/components/Widget';
+import QuizLogo from '../src/components/QuizLogo';
+import QuizBackground from '../src/components/QuizBackground';
+import Footer from '../src/components/Footer';
+import GitHubCorner from '../src/components/GitHubCorner';
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -22,12 +25,22 @@ export default function Home() {
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
         <QuizLogo />
+
         <Widget>
           <Widget.Header>
-            <h1>{db.title}</h1>
+            <h1>Heroes - Marvel and DC</h1>
           </Widget.Header>
           <Widget.Content>
-            <p>{db.description}</p>
+            <form onSubmit={ function (e){
+              e.preventDefault();
+              
+
+            }}>
+              <input placeholder="Diz ai seu nome pra jogar :)"/>
+              <button type="submit">
+                Jogar
+              </button>
+            </form>
           </Widget.Content>
         </Widget>
 
